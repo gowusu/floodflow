@@ -10,9 +10,9 @@ estimation into a single reproducible pipeline, built around one project object
 that accumulates data and results as it flows through the stages.
 
 It is designed for teaching as much as for research: a companion
-[floodflow manual](floodflow_manual.pdf) explains every concept, derives the
-equations, and includes worked exercises, using the June 2026 Accra floods as a
-running case study.
+[floodflow manual](https://gowusu.github.io/floodflow/floodflow_manual.pdf)
+explains every concept, derives the equations, and includes worked exercises,
+using the June 2026 Accra floods as a running case study.
 
 ## Installation
 
@@ -72,8 +72,11 @@ flood_map()          # interactive and side-by-side maps
 
 ## Documentation
 
-* [**Manual (PDF)**](floodflow_manual.pdf) — 30-page teaching guide with
-  theory boxes, worked equations, exercises, and a spatial-mapping walkthrough.
+* [**Manual (PDF)**](https://gowusu.github.io/floodflow/floodflow_manual.pdf) —
+  30-page teaching guide with theory boxes, worked equations, exercises, and a
+  spatial-mapping walkthrough.
+* [Documentation site](https://gowusu.github.io/floodflow/) — function
+  reference and vignettes rendered as web pages.
 * [Getting-started guide](GETTING-STARTED.md) — the full scenario matrix.
 * Package help: `?flood_route`, `example(flood_route)`, and
   `browseVignettes("floodflow")` after installation.

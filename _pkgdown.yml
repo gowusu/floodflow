@@ -1,0 +1,43 @@
+url: https://gowusu.github.io/floodflow/
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#1f6f8b"
+
+navbar:
+  structure:
+    left:  [intro, reference, articles]
+    right: [manual, search, github]
+  components:
+    manual:
+      text: Manual (PDF)
+      href: floodflow_manual.pdf
+
+reference:
+- title: Project and pipeline
+  contents:
+  - flood_project
+  - is_flood_project
+- title: Rainfall extremes and climate scenarios
+  contents:
+  - flood_extremes
+  - flood_scenario
+- title: Runoff, routing and hydraulics
+  contents:
+  - pet_oudin
+  - flood_runoff
+  - flood_route
+  - flood_hydraulics
+  - roughness
+  - floodflow_lc_roughness
+  - tc_kirpich
+  - tc_kerby
+- title: Uncertainty, vulnerability and emulation
+  contents:
+  - flood_uncertainty
+  - flood_vulnerability
+  - flood_surrogate
+- title: Mapping
+  contents:
+  - flood_map
