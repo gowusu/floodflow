@@ -13,8 +13,9 @@
 #'     for data-scarce settings; change factors can come from published CMIP6
 #'     summaries per Shared Socioeconomic Pathway.}
 #'   \item{\code{"cmip6"}}{Placeholder for ingesting downscaled CMIP6
-#'     projections directly. Requires the \pkg{epwshiftr} package and network
-#'     access; not yet implemented, and currently returns an informative error.}
+#'     projections directly; not yet implemented, and currently returns an
+#'     informative error. Use \code{"delta"} with a CMIP6-derived change
+#'     factor in the meantime.}
 #' }
 #'
 #' @param x A \code{flood_project} whose \code{extremes} slot has been populated
@@ -102,7 +103,6 @@ flood_scenario <- function(x, method = c("delta", "trend", "cmip6"),
     label <- scenario_label %||% sprintf("trend to %d", horizon_year)
 
   } else if (method == "cmip6") {
-    require_engine("epwshiftr", "flood_scenario(method = \"cmip6\")")
     stop("Direct CMIP6 ingestion is not yet implemented. Use method = \"delta\" with a change factor derived from CMIP6 summaries.",
          call. = FALSE)
   }

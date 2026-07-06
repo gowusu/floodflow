@@ -53,8 +53,9 @@ zero-dependency to full-fidelity:
     for data-scarce settings; change factors can come from published CMIP6
     summaries per Shared Socioeconomic Pathway.}
   \item{\code{"cmip6"}}{Placeholder for ingesting downscaled CMIP6
-    projections directly. Requires the \pkg{epwshiftr} package and network
-    access; not yet implemented, and currently returns an informative error.}
+    projections directly; not yet implemented, and currently returns an
+    informative error. Use \code{"delta"} with a CMIP6-derived change
+    factor in the meantime.}
 }
 }
 \examples{

@@ -16,7 +16,7 @@ On win-builder the only NOTE is the expected "New submission".
 ## Notes on dependencies
 
 All modelling engines (terra, extRemes, airGR, whitebox, tmap, leaflet,
-leafsync, ranger, lmomRFA, epwshiftr, shiny) are listed under Suggests, not
+leafsync, ranger, lmomRFA, shiny) are listed under Suggests, not
 Imports. Functions that use them check availability with requireNamespace()
 and fail gracefully with an informative message when a package is not
 installed. Examples and tests that require an optional engine, network access

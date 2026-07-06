@@ -339,7 +339,7 @@ to a shorter return period — the kind of statement the package is built to mak
 | Stage | Function | Pure-R core | Optional engine |
 |-------|----------|-------------|-----------------|
 | Extremes | `flood_extremes()` | internal GEV | `extRemes` |
-| Scenario | `flood_scenario()` | delta, trend | `epwshiftr` (CMIP6) |
+| Scenario | `flood_scenario()` | delta, trend | — (CMIP6 planned) |
 | Roughness | `roughness()` | constant, lookup, NDVI | `terra` (rasters) |
 | Runoff | `flood_runoff()` | conceptual fallback | `airGR` (GR4J) |
 | Routing | `flood_route()` | all five methods | — |

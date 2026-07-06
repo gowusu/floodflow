@@ -35,7 +35,6 @@ Suggests:
     leafsync,
     ranger,
     lmomRFA,
-    epwshiftr,
     shiny,
     testthat (>= 3.0.0),
     knitr,
