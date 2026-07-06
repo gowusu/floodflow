@@ -1,0 +1,172 @@
+# Mapping with floodflow
+
+The main vignette runs `floodflow` in **lumped** mode: one depth, one
+velocity, one risk value for the whole basin. That is enough to learn
+the pipeline, but a flood is a geographic thing, and the package is
+built to be **map-first**. This vignette shows the **spatial** workflow,
+where each stage works on a grid and the result is a map.
+
+Every chunk here is set `eval = FALSE`, because drawing maps needs the
+optional `terra` (spatial data) and `tmap` (map rendering) packages,
+which are not required to install `floodflow`. To run the code, install
+them first:
+
+``` r
+
+install.packages(c("terra", "tmap"))
+```
+
+We deliberately use a **dataset that already ships with `terra`**, so
+you can run this example immediately with no downloads. Once it works,
+substituting your own basin is a one-line change, shown at the end.
+
+## A real elevation grid, already on your disk
+
+`terra` bundles a small digital elevation model (DEM) — a raster where
+each cell holds a ground elevation. We load it and derive slope, which
+the routing stage needs.
+
+``` r
+
+library(terra)
+library(floodflow)
+
+# Bundled DEM (elevation of a small area, in metres). No download needed.
+dem <- rast(system.file("ex/elev.tif", package = "terra"))
+dem
+
+# Slope in radians, then as a simple gradient (rise/run) for routing
+slope <- terrain(dem, v = "slope", unit = "radians")
+plot(dem, main = "Bundled elevation model (terra ex/elev.tif)")
+```
+
+This DEM is our stand-in for a basin. Anywhere you see it below, your
+own `rast("my_dem.tif")` would slot straight in.
+
+## Roughness from a vegetation grid
+
+[`roughness()`](https://gowusu.github.io/floodflow/reference/roughness.md)
+accepts a raster. Here we build a synthetic vegetation index (NDVI) over
+the DEM’s grid and turn it into a per-cell Manning’s *n* map. In a real
+study you would load an actual NDVI raster from satellite imagery
+instead.
+
+``` r
+
+# A stand-in NDVI raster on the same grid as the DEM (values 0-1)
+set.seed(1)
+ndvi <- setValues(dem, runif(ncell(dem), 0, 1))
+
+# Per-cell Manning's n from vegetation greenness
+rough <- roughness(ndvi, method = "ndvi")
+rough$n            # this is now a SpatRaster of roughness values
+plot(rough$n, main = "Manning's n from vegetation (per cell)")
+```
+
+[`roughness()`](https://gowusu.github.io/floodflow/reference/roughness.md)
+also maps a categorical land-cover raster with `method = "landcover"`,
+looking each class up in `floodflow_lc_roughness`.
+
+## A spatial risk map
+
+The clearest spatial output is the **risk map**.
+[`flood_vulnerability()`](https://gowusu.github.io/floodflow/reference/flood_vulnerability.md)
+combines three rasters — hazard, exposure and vulnerability — into a
+risk grid using `Risk = Hazard x Exposure x Vulnerability`. We build
+three illustrative layers on the DEM’s grid; in practice hazard would
+come from a spatial depth model, exposure from a population raster (such
+as WorldPop), and vulnerability from a deprivation index.
+
+``` r
+
+# Three layers on the DEM grid (replace with your real rasters)
+hazard    <- dem / global(dem, "max", na.rm = TRUE)[1, 1]  # deeper where higher-relief, illustrative
+exposure  <- setValues(dem, rpois(ncell(dem), 50))          # population per cell
+vuln      <- setValues(dem, runif(ncell(dem)))              # deprivation index
+
+risk <- flood_vulnerability(hazard,
+                            exposure = exposure,
+                            vulnerability = vuln)
+risk$risk          # a SpatRaster: relative risk, 0 to 1
+```
+
+## Drawing the map
+
+With a spatial layer in the project and `tmap` installed,
+[`flood_map()`](https://gowusu.github.io/floodflow/reference/flood_map.md)
+renders an interactive map. We attach the risk result to a project and
+map it.
+
+``` r
+
+fp <- flood_project("example basin", crs = crs(dem))
+fp$vulnerability <- risk
+
+m <- flood_map(fp, layer = "risk")
+m$engine           # "tmap" when tmap is installed
+m$map              # the interactive map object; print it to view
+```
+
+If neither `tmap` nor `leaflet` is installed,
+[`flood_map()`](https://gowusu.github.io/floodflow/reference/flood_map.md)
+still returns a tidy numeric summary in `m$data`, so nothing breaks —
+you simply get the numbers instead of a picture. You can also always
+draw any layer directly with terra:
+
+``` r
+
+plot(risk$risk, main = "Flood risk index (Hazard x Exposure x Vulnerability)")
+```
+
+## Mapping flood depth with a HAND surface
+
+Flood depth can be mapped too, by giving
+[`flood_route()`](https://gowusu.github.io/floodflow/reference/flood_route.md)
+a **HAND** surface (Height Above Nearest Drainage): a raster where each
+cell holds its height above the local channel. The routing stage then
+floods every cell whose height is below the peak water level, to a depth
+of `peak_depth - HAND`, and stores the result as a `depth_raster` that
+[`flood_map()`](https://gowusu.github.io/floodflow/reference/flood_map.md)
+draws.
+
+``` r
+
+# A HAND raster on the DEM grid. For a quick look you can pass the DEM itself
+# (floodflow derives a crude proxy); for accuracy use a true HAND surface, e.g.
+# from whitebox::wbt_elevation_above_stream().
+hand <- dem - global(dem, "min", na.rm = TRUE)[1, 1]
+
+fp <- flood_project("example basin", crs = crs(dem))
+fp$rainfall <- data.frame(
+  date = seq(as.Date("2020-01-01"), by = "day", length.out = 365),
+  precip_mm = round(runif(365, 0, 20), 1))
+fp <- flood_runoff(fp, engine = "simple")
+fp <- flood_route(fp, area_km2 = 300, hand = hand)   # <- pass the HAND raster
+
+fp$route$depth_raster            # a SpatRaster of inundation depth
+flood_map(fp, layer = "depth")   # now draws a real inundation map
+plot(fp$route$depth_raster, main = "Inundation depth (m)")
+```
+
+Passing a true HAND surface (rather than the DEM proxy) gives a
+hydrologically correct inundation extent. The risk workflow above and
+this depth workflow are the two fully spatial outputs of the package.
+
+## Substituting your own basin
+
+Everything above used `terra`’s bundled DEM so it runs anywhere. For
+your own study area, change one line:
+
+``` r
+
+# Instead of the bundled DEM:
+# dem <- rast(system.file("ex/elev.tif", package = "terra"))
+
+# use your own:
+dem  <- rast("path/to/your_dem.tif")
+ndvi <- rast("path/to/your_ndvi.tif")
+# ... the rest of the workflow is unchanged.
+```
+
+That is the intended pattern: learn the workflow on the bundled data,
+then point the same code at your basin’s rasters.

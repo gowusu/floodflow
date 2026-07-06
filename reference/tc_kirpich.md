@@ -1,0 +1,39 @@
+# Time of concentration by the Kirpich method
+
+The Kirpich (1940) empirical formula for the time of concentration of a
+channelised catchment, in the SI form with length in metres. Time of
+concentration is the time for water to travel from the hydraulically
+most distant point to the outlet, a key control on peak discharge
+timing.
+
+## Usage
+
+``` r
+tc_kirpich(length_m, slope)
+```
+
+## Arguments
+
+- length_m:
+
+  Flow-path length in metres.
+
+- slope:
+
+  Channel slope (dimensionless, m/m).
+
+## Value
+
+Time of concentration in minutes.
+
+## References
+
+Kirpich, Z. P. (1940) Time of concentration of small agricultural
+watersheds. Civil Engineering 10(6), 362.
+
+## Examples
+
+``` r
+tc_kirpich(1500, 0.05)
+#> [1] 17.23937
+```
