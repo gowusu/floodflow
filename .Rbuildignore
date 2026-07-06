@@ -1,0 +1,12 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^cran-comments\.md$
+^\.github$
+^LICENSE\.md$
+^README\.Rmd$
+^\.git$
+^\.gitignore$
+^GETTING-STARTED\.md$
+^floodflow_manual\.pdf$
+^floodflow_v0\.2_roadmap\.md$
+^reproduce_figures\.R$

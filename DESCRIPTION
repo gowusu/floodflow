@@ -1,0 +1,48 @@
+Package: floodflow
+Type: Package
+Title: Map-First Climate-Informed Flood Assessment for Data-Scarce Basins
+Version: 0.1.0
+Authors@R: c(
+    person("George", "Owusu", email = "owusugeorge@ug.edu.gh",
+           role = c("aut", "cre")))
+Description: A reproducible, map-oriented workflow for flood hazard assessment
+    that chains rainfall extreme value analysis, rainfall-runoff simulation,
+    terrain-based flow routing and water-depth estimation into a single
+    pipeline. A stationary-versus-nonstationary test for changing rainfall
+    extremes is built in, and any flood scenario can be produced for a
+    present-day or a climate-adjusted design event. Defaults target settings
+    with sparse gauge networks, using satellite or reanalysis rainfall,
+    temperature-based potential evapotranspiration and regional pooling of
+    short records. Heavy modelling engines are wrapped rather than
+    reimplemented so that the core stays lightweight. Methods follow
+    established hydrology, including the generalized extreme value distribution
+    for rainfall maxima (Coles, 2001, <doi:10.1007/978-1-4471-3675-0>) and
+    Manning's equation for open-channel flow.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 4.1)
+Imports:
+    stats,
+    utils
+Suggests:
+    terra,
+    sf,
+    extRemes,
+    airGR,
+    whitebox,
+    tmap,
+    leaflet,
+    leafsync,
+    ranger,
+    lmomRFA,
+    epwshiftr,
+    shiny,
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.3.1
+Config/testthat/edition: 3
+URL: https://github.com/gowusu/floodflow
+BugReports: https://github.com/gowusu/floodflow/issues
