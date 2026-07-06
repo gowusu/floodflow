@@ -41,3 +41,7 @@ reference:
 - title: Mapping
   contents:
   - flood_map
+- title: Print and summary methods
+  contents:
+  - starts_with("print.")
+  - summary.flood_project
