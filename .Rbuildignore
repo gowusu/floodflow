@@ -4,6 +4,7 @@
 ^\.github$
 ^LICENSE\.md$
 ^README\.Rmd$
+^README\.md$
 ^\.git$
 ^\.gitignore$
 ^GETTING-STARTED\.md$

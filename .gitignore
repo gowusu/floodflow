@@ -12,6 +12,3 @@ src/*.o
 src/*.so
 src/*.dll
 inst/doc
-
-# generated PDF manual (regenerable via R CMD Rd2pdf; not needed in the repo)
-floodflow_manual.pdf
