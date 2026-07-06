@@ -141,9 +141,19 @@ roughness <- function(x = NULL,
       stop("`table` must be a named numeric vector of class -> n.", call. = FALSE)
     }
     if (is_raster(input)) {
-      # Pull cell values, map each class label to n, write back to a raster
-      vals <- terra::values(input)
-      cls <- as.character(vals[, 1])
+      # Pull cell values, map each class label to n, write back to a raster.
+      # For a categorical (factor) raster the cell values are integer codes,
+      # so translate them to their category labels before the lookup.
+      vals <- terra::values(input)[, 1]
+      if (isTRUE(terra::is.factor(input))) {
+        lv <- terra::levels(input)[[1]]
+        ac <- terra::activeCat(input)
+        labcol <- if (length(ac) == 1L && !is.na(ac)) ac + 2L else 2L
+        if (labcol > ncol(lv) || labcol < 2L) labcol <- ncol(lv)
+        cls <- as.character(lv[[labcol]][match(vals, lv[[1L]])])
+      } else {
+        cls <- as.character(vals)
+      }
       mapped <- table[cls]
       if (any(is.na(mapped) & !is.na(cls))) {
         stop("Land-cover raster contains classes not present in `table`.",
