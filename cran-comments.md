@@ -11,7 +11,10 @@ This is the first submission of floodflow (0.1.0), a new package.
 
 Locally, 0 errors | 0 warnings | 0 notes.
 
-On win-builder the only NOTE is the expected "New submission".
+On win-builder the only NOTE is the expected "New submission". The words
+it flags as possibly misspelled are a cited author name ("Coles") and
+standard domain terms ("evapotranspiration", "nonstationary",
+"reimplemented"), all spelled correctly.
 
 ## Notes on dependencies
 
