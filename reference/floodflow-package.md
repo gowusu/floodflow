@@ -30,6 +30,8 @@ Useful links:
 
 - <https://github.com/gowusu/floodflow>
 
+- <https://gowusu.github.io/floodflow/>
+
 - Report bugs at <https://github.com/gowusu/floodflow/issues>
 
 ## Author
