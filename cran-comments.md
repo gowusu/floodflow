@@ -1,6 +1,14 @@
 ## Submission summary
 
-This is the first submission of floodflow (0.1.0), a new package.
+Resubmission of floodflow 0.1.1 (new package).
+
+Addresses the review by Konstanze Lauseker: the exported data object
+`floodflow_lc_roughness` was missing a \value tag. Its .Rd now has a
+\value section describing the object (a named numeric vector of length 8),
+what each element is (a Manning's roughness coefficient) and what the names
+mean (the land-cover classes). All other exported functions already
+document their return value, including its class and the meaning of each
+element.
 
 ## Test environments
 

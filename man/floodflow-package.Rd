@@ -32,6 +32,7 @@ vulnerability overlay and mapping.
 Useful links:
 \itemize{
   \item \url{https://github.com/gowusu/floodflow}
+  \item \url{https://gowusu.github.io/floodflow/}
   \item Report bugs at \url{https://github.com/gowusu/floodflow/issues}
 }
 

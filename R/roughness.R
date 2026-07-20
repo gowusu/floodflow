@@ -8,6 +8,13 @@
 #' @format A named numeric vector. Names are land-cover classes; values are
 #'   Manning's \eqn{n}.
 #'
+#' @return A named numeric vector of length 8. Each element is a
+#'   representative Manning's roughness coefficient \eqn{n} (dimensionless)
+#'   and its name is the land-cover class it applies to (\code{"water"},
+#'   \code{"urban"}, \code{"bare"}, \code{"grassland"}, \code{"cropland"},
+#'   \code{"shrub"}, \code{"forest"}, \code{"wetland"}). It is the default
+#'   land-cover-to-roughness lookup table used by \code{\link{roughness}}.
+#'
 #' @examples
 #' floodflow_lc_roughness["forest"]
 #'
