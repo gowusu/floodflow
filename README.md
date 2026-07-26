@@ -72,9 +72,12 @@ flood_map()          # interactive and side-by-side maps
 
 ## Documentation
 
-* [**Manual (PDF)**](https://gowusu.github.io/floodflow/floodflow_manual.pdf) —
-  30-page teaching guide with theory boxes, worked equations, exercises, and a
-  spatial-mapping walkthrough.
+* [**Manual (Markdown)**](manual/floodflow_manual.md) — the full teaching guide,
+  renders on GitHub. Theory boxes, worked equations, exercises and projects, and a
+  spatial-mapping walkthrough. Built on the real bundled `accra_rainfall` record;
+  `manual/reproduce_manual.R` regenerates every figure.
+* [Manual (PDF)](https://gowusu.github.io/floodflow/floodflow_manual.pdf) — the
+  same guide as a printable PDF.
 * [Documentation site](https://gowusu.github.io/floodflow/) — function
   reference and vignettes rendered as web pages.
 * [Getting-started guide](GETTING-STARTED.md) — the full scenario matrix.

@@ -12,3 +12,9 @@ src/*.o
 src/*.so
 src/*.dll
 inst/doc
+
+# reproduce output at the repo root (the curated set lives in manual/figures/)
+/figures/
+
+# built manual HTML - not published (renders from the .md; keeps language stats R-dominant)
+manual/*.html
