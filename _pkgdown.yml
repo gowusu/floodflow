@@ -41,6 +41,9 @@ reference:
 - title: Mapping
   contents:
   - flood_map
+- title: Data
+  contents:
+  - accra_rainfall
 - title: Print and summary methods
   contents:
   - starts_with("print.")

@@ -16,5 +16,8 @@ inst/doc
 # reproduce output at the repo root (the curated set lives in manual/figures/)
 /figures/
 
+# pkgdown local build output (the live site is built and deployed by GitHub Actions)
+/docs/
+
 # built manual HTML - not published (renders from the .md; keeps language stats R-dominant)
 manual/*.html
