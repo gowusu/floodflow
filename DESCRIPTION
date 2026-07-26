@@ -1,7 +1,7 @@
 Package: floodflow
 Type: Package
 Title: Map-First Climate-Informed Flood Assessment for Data-Scarce Basins
-Version: 0.1.1
+Version: 0.2.0
 Authors@R: c(
     person("George", "Owusu", email = "owusugeorge@ug.edu.gh",
            role = c("aut", "cre")))
@@ -20,6 +20,7 @@ Description: A reproducible, map-oriented workflow for flood hazard assessment
     Manning's equation for open-channel flow.
 License: MIT + file LICENSE
 Encoding: UTF-8
+LazyData: true
 Depends:
     R (>= 4.1)
 Imports:
