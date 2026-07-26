@@ -12,7 +12,7 @@ navbar:
   components:
     manual:
       text: Manual
-      href: https://github.com/gowusu/floodflow/blob/master/manual/floodflow_manual.md
+      href: articles/floodflow_manual.html
 
 reference:
 - title: Project and pipeline
