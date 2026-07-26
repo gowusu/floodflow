@@ -340,16 +340,12 @@ is important in its own right: <strong>even a climate with no detectable
 trend in daily maxima produces devastating rare events</strong>, as
 Section 7 shows starkly. The stationary-vs-nonstationary machinery is
 still exactly what you run on your own basin; here it happens to report
-“not significant”.</p>
-<div class="float">
-<img src="figures/fig01_annual_maxima.png" alt="Figure 1. Each year’s heaviest rainfall for Accra, 1981–2026, with a fitted regression line."><div class="figcaption">Figure 1. Each year’s heaviest rainfall for
-Accra, 1981–2026, with a fitted regression line.</div>
-</div>
-<p><em>Figure 1. Accra’s annual maximum daily rainfall, 1981–2026. The
-straight regression line drifts up a little — pulled by the wet years
-2022–2023 — but the rigorous GEV likelihood-ratio test finds no
-statistically significant trend (p = 0.72). A short record and a couple
-of wet years can look like a trend without being one.</em></p>
+“not significant”. The plotted annual maxima bear this out: the
+regression line drifts up a little — pulled by the wet years 2022–2023 —
+but that apparent rise is not statistically significant, and a short
+record with a couple of wet years can look like a trend without being
+one (Figure 1).</p>
+<p><img src="figures/fig01_annual_maxima.png"></p>
 <blockquote>
 <p><strong>The equation behind this: GEV return levels.</strong> A
 return level is the rainfall expected once every <code>T</code> years.
@@ -385,13 +381,10 @@ SSP2-4.5 pathway (a moderate-emissions future).</p>
 <p>Today’s 100-year rainfall is 110 mm; under this scenario it becomes
 <strong>132 mm</strong>. A storm that is rare today becomes noticeably
 more common in a warmer Accra — the essence of why planning for climate
-change matters even when the historical trend is undetectable.</p>
-<div class="float">
-<img src="figures/fig02_return_levels.png" alt="Figure 2. Design rainfall today versus mid-century (+20%)."><div class="figcaption">Figure 2. Design rainfall today versus
-mid-century (+20%).</div>
-</div>
-<p><em>Figure 2. Present-day design rainfall (blue) and the mid-century
-SSP2-4.5 estimate (+20%, red), by return period.</em></p>
+change matters even when the historical trend is undetectable. The
+present-day design rainfall (blue) and the mid-century SSP2-4.5 estimate
+(+20%, red) sit side by side by return period (Figure 2).</p>
+<p><img src="figures/fig02_return_levels.png"></p>
 <p>Other methods: <code>method = "trend"</code> projects the fitted
 trend forward to a horizon year; <code>method = "cmip6"</code> is
 reserved for feeding in downscaled climate-model output directly.</p>
@@ -438,21 +431,12 @@ practical lesson of the whole manual:</strong> a record can show <em>no
 significant trend</em> and still deliver, within its own span, an event
 far beyond the 100-year — even beyond a mid-century projection. Design
 standards built on the historical record alone can badly understate the
-true hazard.</p>
-<div class="float">
-<img src="figures/fig03_daily_jump.png" alt="Figure 3. Accra’s highest daily rainfall leapt to 169.2 mm (29 June 2026), crossing both modelled design-storm levels."><div class="figcaption">Figure 3. Accra’s highest daily rainfall leapt
-to 169.2 mm (29 June 2026), crossing both modelled design-storm
-levels.</div>
-</div>
-<p><em>Figure 3. The 2026 event against the manual’s design storms. The
-dashed lines are the present-day (110 mm) and mid-century (132 mm)
-100-year storms from Sections 5–6.</em></p>
-<div class="float">
-<img src="figures/fig04_monthly_record.png" alt="Figure 4. June 2026’s 593 mm shattered Ghana’s previous monthly rainfall records."><div class="figcaption">Figure 4. June 2026’s 593 mm shattered Ghana’s
-previous monthly rainfall records.</div>
-</div>
-<p><em>Figure 4. Ghana’s wettest month on record (source: GMet figures
-reported to Parliament, June 2026).</em></p>
+true hazard. The 2026 daily total sits well above both the present-day
+(110 mm) and mid-century (132 mm) 100-year design storms (Figure 3), and
+June 2026’s 593 mm dwarfs the previous monthly records of 2002 and 2015
+(Figure 4).</p>
+<p><img src="figures/fig03_daily_jump.png"></p>
+<p><img src="figures/fig04_monthly_record.png"></p>
 <p>For the modeller, the takeaway is humility and vigilance: use climate
 scenarios, but treat them as a floor, not a ceiling, and cross-check
 modelled extremes against the newest observations.</p>
@@ -564,12 +548,10 @@ converts energy to water depth, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
 is temperature. floodflow exposes this as <code><a href="../reference/pet_oudin.html">pet_oudin()</a></code>.</p>
 </blockquote>
-<div class="float">
-<img src="figures/fig05_hydrograph.png" alt="Figure 5. The flood hydrograph: discharge rising to a peak and receding."><div class="figcaption">Figure 5. The flood hydrograph: discharge rising
-to a peak and receding.</div>
-</div>
-<p><em>Figure 5. A wet-season flood hydrograph — the flood wave the next
-stage will route.</em></p>
+<p>Plotting the discharge series over a wet season shows the flood wave
+— rising to a peak and receding — that the next stage will route (Figure
+5).</p>
+<p><img src="figures/fig05_hydrograph.png"></p>
 </div>
 <div class="section level3">
 <h3 id="the-water-balance-where-the-rain-goes">10. The water balance: where the rain goes<a class="anchor" aria-label="anchor" href="#the-water-balance-where-the-rain-goes"></a>
@@ -598,13 +580,10 @@ runoff or evaporation.</p>
 simple model; the rest evaporated or was stored. The runoff ratio is the
 number to watch: it rises sharply when the soil is already wet, which is
 why the <em>same</em> rain makes a far bigger flood on saturated ground
-— the role of antecedent wetness.</p>
-<div class="float">
-<img src="figures/fig06_water_balance.png" alt="Figure 6. The monthly water balance: rainfall against evaporative demand and the resulting runoff."><div class="figcaption">Figure 6. The monthly water balance: rainfall
-against evaporative demand and the resulting runoff.</div>
-</div>
-<p><em>Figure 6. Rainfall (blue), evaporative demand PET (red) and
-runoff (line), by month.</em></p>
+— the role of antecedent wetness. Month by month, rainfall (blue) stands
+against evaporative demand (red), with the resulting runoff as the line
+(Figure 6).</p>
+<p><img src="figures/fig06_water_balance.png"></p>
 <blockquote>
 <p><strong>An honest limit.</strong> The built-in <code>"simple"</code>
 engine is a runoff generator, not a fully mass-conserving water-balance
@@ -643,13 +622,10 @@ reach.</p>
 <code>diffusive</code> — the wave flattens realistically.
 <code>muskingum-cunge</code> — the practical default: accurate and
 cheap. <code>dynamic</code> — the most complete stable approximation in
-pure R.</p>
-<div class="float">
-<img src="figures/fig07_routing_ladder.png" alt="Figure 7. The same flood through all five routing methods."><div class="figcaption">Figure 7. The same flood through all five
-routing methods.</div>
-</div>
-<p><em>Figure 7. Simpler methods keep more of the peak; adding physics
-attenuates it more.</em></p>
+pure R. Run the same flood through all five methods and the simpler ones
+keep more of the peak while the more physical ones attenuate it more
+(Figure 7).</p>
+<p><img src="figures/fig07_routing_ladder.png"></p>
 <blockquote>
 <p><strong>The equation behind this: Muskingum-Cunge routing.</strong>
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>O</mi><mn>2</mn></msub><mo>=</mo><msub><mi>C</mi><mn>0</mn></msub><msub><mi>I</mi><mn>2</mn></msub><mo>+</mo><msub><mi>C</mi><mn>1</mn></msub><msub><mi>I</mi><mn>1</mn></msub><mo>+</mo><msub><mi>C</mi><mn>2</mn></msub><msub><mi>O</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex"> O_2 = C_0 I_2 + C_1 I_1 + C_2 O_1 </annotation></semantics></math>
@@ -947,12 +923,9 @@ slope and a HAND (Height Above Nearest Drainage) surface.</p>
 <span><span class="va">slope_tan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/app.html" class="external-link">app</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">tan</a></span><span class="op">(</span><span class="va">slope</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">v</span> <span class="op">&lt;</span> <span class="fl">1e-4</span>, <span class="fl">1e-4</span>, <span class="va">v</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">hand</span> <span class="op">&lt;-</span> <span class="va">dem</span> <span class="op">-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/global.html" class="external-link">global</a></span><span class="op">(</span><span class="va">dem</span>, <span class="st">"min"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span>   <span class="co"># HAND proxy</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dem</span>, main <span class="op">=</span> <span class="st">"Elevation (DEM)"</span><span class="op">)</span></span></code></pre></div>
-<div class="float">
-<img src="figures/fig_dem.png" alt="Figure 8. The digital elevation model. Warm = high ground, cool = valleys."><div class="figcaption">Figure 8. The digital elevation model. Warm =
-high ground, cool = valleys.</div>
-</div>
-<p><em>Figure 8. The elevation model; flow runs from warm ridges to cool
-valley floors.</em></p>
+<p>Warm colours are high ground and cool colours the valley floors where
+flow concentrates (Figure 8).</p>
+<p><img src="figures/fig_dem.png"></p>
 </div>
 <div class="section level3">
 <h3 id="roughness-from-ndvi-a-mannings-n-map">20. Roughness from NDVI (a Manning’s <em>n</em> map)<a class="anchor" aria-label="anchor" href="#roughness-from-ndvi-a-mannings-n-map"></a>
@@ -967,16 +940,11 @@ bare, low-NDVI cells shed water; green cells resist it.</p>
 <span>        <span class="kw">function</span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">pmin</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">pmax</a></span><span class="op">(</span><span class="va">v</span>,<span class="fl">0</span><span class="op">)</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>          <span class="co"># YOUR DATA: rast("ndvi.tif")</span></span>
 <span><span class="va">manning</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/roughness.html">roughness</a></span><span class="op">(</span><span class="va">ndvi</span>, method <span class="op">=</span> <span class="st">"ndvi"</span><span class="op">)</span><span class="op">$</span><span class="va">n</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">manning</span>, main <span class="op">=</span> <span class="st">"Manning's n"</span><span class="op">)</span></span></code></pre></div>
-<div class="float">
-<img src="figures/fig_ndvi.png" alt="Figure 9. Left: the NDVI vegetation map. Right: the Manning’s n roughness map derived from it."><div class="figcaption">Figure 9. Left: the NDVI vegetation map. Right:
-the Manning’s n roughness map derived from it.</div>
-</div>
-<div class="float">
-<img src="figures/fig_manning.png" alt="Figure 10. Manning’s n (roughness) derived from vegetation greenness."><div class="figcaption">Figure 10. Manning’s n (roughness) derived from
-vegetation greenness.</div>
-</div>
-<p><em>Figures 9–10. Greener ground (high NDVI) becomes rougher (higher
-n) and slows water more.</em></p>
+<p>Greener ground (high NDVI) becomes rougher (higher <em>n</em>) and
+slows water more — the vegetation map and the Manning’s <em>n</em> map
+derived from it (Figures 9 and 10).</p>
+<p><img src="figures/fig_ndvi.png"></p>
+<p><img src="figures/fig_manning.png"></p>
 </div>
 <div class="section level3">
 <h3 id="calculating-discharge-two-ways">21. Calculating discharge two ways<a class="anchor" aria-label="anchor" href="#calculating-discharge-two-ways"></a>
@@ -1022,12 +990,9 @@ height above the channel (its HAND value) is below the water level.</p>
 <span><span class="va">depth</span> <span class="op">&lt;-</span> <span class="va">fp</span><span class="op">$</span><span class="va">route</span><span class="op">$</span><span class="va">depth_raster</span></span>
 <span><span class="fu"><a href="../reference/flood_map.html">flood_map</a></span><span class="op">(</span><span class="va">fp</span>, layer <span class="op">=</span> <span class="st">"depth"</span><span class="op">)</span>           <span class="co"># draws the inundation map</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">depth</span>, main <span class="op">=</span> <span class="st">"Inundation depth (m)"</span><span class="op">)</span></span></code></pre></div>
-<div class="float">
-<img src="figures/fig_depth.png" alt="Figure 11. Flood depth from Manning’s equation per cell, and inundation extent from the HAND method."><div class="figcaption">Figure 11. Flood depth from Manning’s equation
-per cell, and inundation extent from the HAND method.</div>
-</div>
-<p><em>Figure 11. Inundation depth; the HAND method keeps cells above
-the flood dry.</em></p>
+<p>The HAND method keeps cells above the channel dry, leaving a clean
+inundation-depth map (Figure 11).</p>
+<p><img src="figures/fig_depth.png"></p>
 </div>
 <div class="section level3">
 <h3 id="the-velocity-map">23. The velocity map<a class="anchor" aria-label="anchor" href="#the-velocity-map"></a>
@@ -1040,20 +1005,12 @@ each cell’s depth, roughness and slope.</p>
 <code class="sourceCode R"><span><span class="va">depth_field</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/app.html" class="external-link">app</a></span><span class="op">(</span><span class="va">depth</span>, <span class="kw">function</span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">v</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">0.05</span>, <span class="va">v</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">velocity</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="va">manning</span><span class="op">)</span> <span class="op">*</span> <span class="va">depth_field</span><span class="op">^</span><span class="op">(</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">slope_tan</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">velocity</span>, main <span class="op">=</span> <span class="st">"Flow velocity (m/s)"</span><span class="op">)</span></span></code></pre></div>
-<div class="float">
-<img src="figures/fig_velocity.png" alt="Figure 12. The velocity map (m/s). The fastest, most dangerous flow follows the steep flanks."><div class="figcaption">Figure 12. The velocity map (m/s). The fastest,
-most dangerous flow follows the steep flanks.</div>
-</div>
-<p><em>Figure 12. Velocity — the fastest flow follows steep flanks, not
-the flat valley floor.</em></p>
+<p>The fastest, most dangerous flow follows the steep flanks, not the
+flat valley floor (Figure 12).</p>
+<p><img src="figures/fig_velocity.png"></p>
 <p>Discharge per cell then follows from continuity,
-<code>Q = velocity × width × depth</code>:</p>
-<div class="float">
-<img src="figures/fig_discharge.png" alt="Figure 13. Manning discharge per cell (m3/s)."><div class="figcaption">Figure 13. Manning discharge per cell
-(m3/s).</div>
-</div>
-<p><em>Figure 13. Per-cell discharge from velocity, width and
-depth.</em></p>
+<code>Q = velocity × width × depth</code> (Figure 13).</p>
+<p><img src="figures/fig_discharge.png"></p>
 </div>
 <div class="section level3">
 <h3 id="time-bound-maps">24. Time-bound maps<a class="anchor" aria-label="anchor" href="#time-bound-maps"></a>
@@ -1067,12 +1024,10 @@ cell to the outlet — distance divided by velocity.</p>
 <span><span class="va">outlet_r</span><span class="op">[</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">which.min</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">dem</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span><span class="va">travel_min</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/distance.html" class="external-link">distance</a></span><span class="op">(</span><span class="va">outlet_r</span><span class="op">)</span> <span class="op">/</span> <span class="va">velocity</span><span class="op">)</span> <span class="op">/</span> <span class="fl">60</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">travel_min</span>, main <span class="op">=</span> <span class="st">"Travel time to outlet (minutes)"</span><span class="op">)</span></span></code></pre></div>
-<div class="float">
-<img src="figures/fig_travel.png" alt="Figure 14. The travel-time map. Blue zones flood within minutes and must be warned first."><div class="figcaption">Figure 14. The travel-time map. Blue zones flood
-within minutes and must be warned first.</div>
-</div>
-<p><em>Figure 14. Travel time to the outlet — the map that sets
-evacuation lead times.</em></p>
+<p>Travel time to the outlet is the map that sets evacuation lead times
+— blue zones flood within minutes and must be warned first (Figure
+14).</p>
+<p><img src="figures/fig_travel.png"></p>
 </div>
 <div class="section level3">
 <h3 id="the-complete-spatial-script">25. The complete spatial script<a class="anchor" aria-label="anchor" href="#the-complete-spatial-script"></a>
@@ -1170,14 +1125,10 @@ from theory.</em></p>
 </h3>
 <p>To watch a flood move, loop over the daily routed series and draw one
 depth map per day, then let an animation package assemble them. The
-lumped depth-over-time curve for a single event looks like this:</p>
-<div class="float">
-<img src="figures/fig_daily_depth.png" alt="Figure 15. Lumped daily depth: the flood as a depth-over-time curve, over the rainfall that drove it."><div class="figcaption">Figure 15. Lumped daily depth: the flood as a
-depth-over-time curve, over the rainfall that drove it.</div>
-</div>
-<p><em>Figure 15. Daily flood depth through an event (red), over the
-rainfall that drove it (blue) — depth lags and outlasts the
-rain.</em></p>
+lumped depth-over-time curve for a single event looks like a
+depth-over-time curve (red) over the rainfall that drove it (blue), with
+the depth lagging and outlasting the rain (Figure 15).</p>
+<p><img src="figures/fig_daily_depth.png"></p>
 </div>
 <div class="section level3">
 <h3 id="saving-your-maps-and-troubleshooting">27. Saving your maps, and troubleshooting<a class="anchor" aria-label="anchor" href="#saving-your-maps-and-troubleshooting"></a>
