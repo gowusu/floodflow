@@ -9,9 +9,10 @@ the stages.
 
 It is designed for teaching as much as for research: a companion
 [floodflow
-manual](https://gowusu.github.io/floodflow/floodflow_manual.pdf)
+manual](https://gowusu.github.io/floodflow/manual/floodflow_manual.md)
 explains every concept, derives the equations, and includes worked
-exercises, using the June 2026 Accra floods as a running case study.
+exercises and projects, using the June 2026 Accra floods as a running
+case study.
 
 ## Installation
 
@@ -72,10 +73,12 @@ fp$route$peak_depth_m        # ~2.07 m
 
 ## Documentation
 
-- [**Manual
-  (PDF)**](https://gowusu.github.io/floodflow/floodflow_manual.pdf) —
-  30-page teaching guide with theory boxes, worked equations, exercises,
-  and a spatial-mapping walkthrough.
+- [**Manual**](https://gowusu.github.io/floodflow/manual/floodflow_manual.md)
+  — the full teaching guide, renders on GitHub. Theory boxes, worked
+  equations, exercises and projects, and a spatial-mapping walkthrough.
+  Built on the real bundled `accra_rainfall` record;
+  `manual/reproduce_manual.R` regenerates every figure. A Word version
+  (`manual/floodflow_manual.docx`) is there for a printable copy.
 - [Documentation site](https://gowusu.github.io/floodflow/) — function
   reference and vignettes rendered as web pages.
 - [Getting-started
@@ -152,6 +155,11 @@ MIT © George Owusu
 
 - [`flood_map()`](https://gowusu.github.io/floodflow/reference/flood_map.md)
   : Map a flood layer
+
+## Data
+
+- [`accra_rainfall`](https://gowusu.github.io/floodflow/reference/accra_rainfall.md)
+  : Daily rainfall and temperature for Accra, Ghana (1981 to present)
 
 ## Print and summary methods
 

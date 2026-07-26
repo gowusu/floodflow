@@ -47,6 +47,11 @@
 - [`flood_map()`](https://gowusu.github.io/floodflow/reference/flood_map.md)
   : Map a flood layer
 
+## Data
+
+- [`accra_rainfall`](https://gowusu.github.io/floodflow/reference/accra_rainfall.md)
+  : Daily rainfall and temperature for Accra, Ghana (1981 to present)
+
 ## Print and summary methods
 
 - [`print(`*`<flood_extremes>`*`)`](https://gowusu.github.io/floodflow/reference/print.flood_extremes.md)

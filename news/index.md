@@ -1,5 +1,16 @@
 # Changelog
 
+## floodflow 0.2.0
+
+### Data
+
+- New bundled dataset `accra_rainfall`: a real long-term daily rainfall
+  and temperature record for Accra, Ghana (1981-01-01 to 2026-07-20,
+  16637 days), retrieved from NASA POWER with `sebkc::weather()`. It
+  replaces the simulated record as the manual’s worked example, so the
+  examples keep working even if the online service is unavailable. Load
+  it and drop it onto a project: `fp$rainfall <- accra_rainfall`.
+
 ## floodflow 0.1.0
 
 ### Pipeline stages
