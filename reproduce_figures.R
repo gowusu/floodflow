@@ -15,18 +15,11 @@ suppressWarnings(dir.create("figures", showWarnings = FALSE))
 png_ <- function(name) png(file.path("figures", name), width = 900, height = 600, res = 110)
 
 ## ---------------------------------------------------------------------------
-## Shared data: the synthetic Accra-like rainfall record used in Part 1
+## Shared data: the REAL Accra daily rainfall record bundled with the package
+## (NASA POWER 1981-present, fetched via sebkc::weather). See ?accra_rainfall.
 ## ---------------------------------------------------------------------------
-set.seed(2026)
-dates <- seq(as.Date("1981-01-01"), as.Date("2024-12-31"), by = "day")
-doy   <- as.integer(format(dates, "%j"))
-yr    <- as.integer(format(dates, "%Y"))
-season <- 0.5 + 0.5 * (exp(-((doy-160)^2)/(2*35^2)) +
-                  0.6 * exp(-((doy-285)^2)/(2*30^2)))
-cc    <- 1 + 0.030 * (yr - 1981)
-rain  <- data.frame(date = dates,
-  precip_mm = round(rbinom(length(dates),1,0.28*season) *
-              rgamma(length(dates),0.7,scale=9*season*cc), 1))
+data("accra_rainfall", package = "floodflow")
+rain <- accra_rainfall
 
 fp <- flood_project("Odaw basin, Accra")
 fp$rainfall <- rain
@@ -69,10 +62,10 @@ plot(c(2024, 2026), c(56, 169.2), type = "b", pch = 19, col = "#c1462f",
      xlab = "", ylab = "highest daily rainfall (mm)",
      main = "Accra daily rainfall record: the future arrived early")
 axis(1, at = c(2024, 2025, 2026))
-abline(h = 114.5, lty = 2, col = "#1f7a8c")
-abline(h = 137.3, lty = 2, col = "#0a3d52")
-text(2024.2, 120, "present-day 100-yr (114 mm)", cex = 0.8, col = "#1f7a8c", pos = 4)
-text(2024.2, 143, "SSP2-4.5 2050 100-yr (137 mm)", cex = 0.8, col = "#0a3d52", pos = 4)
+abline(h = 110.1, lty = 2, col = "#1f7a8c")
+abline(h = 132.1, lty = 2, col = "#0a3d52")
+text(2024.2, 116, "present-day 100-yr (110 mm)", cex = 0.8, col = "#1f7a8c", pos = 4)
+text(2024.2, 138, "SSP2-4.5 2050 100-yr (132 mm)", cex = 0.8, col = "#0a3d52", pos = 4)
 dev.off()
 
 png_("fig04_monthly_record.png")
