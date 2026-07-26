@@ -10,7 +10,7 @@ estimation into a single reproducible pipeline, built around one project object
 that accumulates data and results as it flows through the stages.
 
 It is designed for teaching as much as for research: a companion
-[floodflow manual](manual/floodflow_manual.md)
+[floodflow manual](https://gowusu.github.io/floodflow/articles/floodflow_manual.html)
 explains every concept, derives the equations, and includes worked exercises and
 projects, using the June 2026 Accra floods as a running case study.
 
@@ -72,14 +72,19 @@ flood_map()          # interactive and side-by-side maps
 
 ## Documentation
 
-* [**Manual**](manual/floodflow_manual.md) — the full teaching guide, renders on
-  GitHub. Theory boxes, worked equations, exercises and projects, and a
-  spatial-mapping walkthrough. Built on the real bundled `accra_rainfall` record;
-  `manual/reproduce_manual.R` regenerates every figure. A Word version
-  (`manual/floodflow_manual.docx`) is there for a printable copy.
+* [**Manual (read online)**](https://gowusu.github.io/floodflow/articles/floodflow_manual.html)
+  — the full teaching guide as a web page: theory boxes, worked equations, exercises
+  and projects, and a spatial-mapping walkthrough, built on the real bundled
+  `accra_rainfall` record.
+* [Manual source on GitHub](https://github.com/gowusu/floodflow/blob/master/manual/floodflow_manual.md)
+  (Markdown) and a
+  [Word version](https://github.com/gowusu/floodflow/blob/master/manual/floodflow_manual.docx)
+  for printing;
+  [`reproduce_manual.R`](https://github.com/gowusu/floodflow/blob/master/manual/reproduce_manual.R)
+  regenerates every figure.
 * [Documentation site](https://gowusu.github.io/floodflow/) — function
   reference and vignettes rendered as web pages.
-* [Getting-started guide](GETTING-STARTED.md) — the full scenario matrix.
+* [Getting-started guide](https://github.com/gowusu/floodflow/blob/master/GETTING-STARTED.md) — the full scenario matrix.
 * Package help: `?flood_route`, `example(flood_route)`, and
   `browseVignettes("floodflow")` after installation.
 
