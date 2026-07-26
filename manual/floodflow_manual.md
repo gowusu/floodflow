@@ -261,14 +261,12 @@ coarse for detecting a trend in *rare* events, and seasonal or monthly totals �
 finer record — may tell a different story. What the data *do* say is important in its own right:
 **even a climate with no detectable trend in daily maxima produces devastating rare events**, as
 Section 7 shows starkly. The stationary-vs-nonstationary machinery is still exactly what you run
-on your own basin; here it happens to report "not significant".
+on your own basin; here it happens to report "not significant". The plotted annual maxima bear
+this out: the regression line drifts up a little — pulled by the wet years 2022–2023 — but that
+apparent rise is not statistically significant, and a short record with a couple of wet years can
+look like a trend without being one (Figure 1).
 
-![Figure 1. Each year's heaviest rainfall for Accra, 1981–2026, with a fitted regression line.](figures/fig01_annual_maxima.png)
-
-*Figure 1. Accra's annual maximum daily rainfall, 1981–2026. The straight regression line drifts
-up a little — pulled by the wet years 2022–2023 — but the rigorous GEV likelihood-ratio test
-finds no statistically significant trend (p = 0.72). A short record and a couple of wet years can
-look like a trend without being one.*
+![](figures/fig01_annual_maxima.png)
 
 > **The equation behind this: GEV return levels.** A return level is the rainfall expected once
 > every `T` years. The GEV turns the three fitted parameters — location μ, scale σ, shape ξ —
@@ -304,12 +302,11 @@ fp$scenario
 
 Today's 100-year rainfall is 110 mm; under this scenario it becomes **132 mm**. A storm that is
 rare today becomes noticeably more common in a warmer Accra — the essence of why planning for
-climate change matters even when the historical trend is undetectable.
+climate change matters even when the historical trend is undetectable. The present-day design
+rainfall (blue) and the mid-century SSP2-4.5 estimate (+20%, red) sit side by side by return
+period (Figure 2).
 
-![Figure 2. Design rainfall today versus mid-century (+20%).](figures/fig02_return_levels.png)
-
-*Figure 2. Present-day design rainfall (blue) and the mid-century SSP2-4.5 estimate (+20%, red),
-by return period.*
+![](figures/fig02_return_levels.png)
 
 Other methods: `method = "trend"` projects the fitted trend forward to a horizon year;
 `method = "cmip6"` is reserved for feeding in downscaled climate-model output directly.
@@ -351,17 +348,13 @@ Under today's statistics the event looks like a **1-in-511-year** storm; even un
 happened. **This is the practical lesson of the whole manual:** a record can show *no significant
 trend* and still deliver, within its own span, an event far beyond the 100-year — even beyond a
 mid-century projection. Design standards built on the historical record alone can badly
-understate the true hazard.
+understate the true hazard. The 2026 daily total sits well above both the present-day (110 mm)
+and mid-century (132 mm) 100-year design storms (Figure 3), and June 2026's 593 mm dwarfs the
+previous monthly records of 2002 and 2015 (Figure 4).
 
-![Figure 3. Accra's highest daily rainfall leapt to 169.2 mm (29 June 2026), crossing both modelled design-storm levels.](figures/fig03_daily_jump.png)
+![](figures/fig03_daily_jump.png)
 
-*Figure 3. The 2026 event against the manual's design storms. The dashed lines are the
-present-day (110 mm) and mid-century (132 mm) 100-year storms from Sections 5–6.*
-
-![Figure 4. June 2026's 593 mm shattered Ghana's previous monthly rainfall records.](figures/fig04_monthly_record.png)
-
-*Figure 4. Ghana's wettest month on record (source: GMet figures reported to Parliament, June
-2026).*
+![](figures/fig04_monthly_record.png)
 
 For the modeller, the takeaway is humility and vigilance: use climate scenarios, but treat them
 as a floor, not a ceiling, and cross-check modelled extremes against the newest observations.
@@ -431,9 +424,10 @@ implicitly, through soil storage.
 > $\lambda\rho$ converts energy to water depth, and $T$ is temperature. floodflow exposes this
 > as `pet_oudin()`.
 
-![Figure 5. The flood hydrograph: discharge rising to a peak and receding.](figures/fig05_hydrograph.png)
+Plotting the discharge series over a wet season shows the flood wave — rising to a peak and
+receding — that the next stage will route (Figure 5).
 
-*Figure 5. A wet-season flood hydrograph — the flood wave the next stage will route.*
+![](figures/fig05_hydrograph.png)
 
 ## 10. The water balance: where the rain goes
 
@@ -460,11 +454,11 @@ c(rainfall = round(P), runoff = round(Q), ratio = round(Q / P, 3))
 Over the full 46-year record, of ~54,700 mm of rain about 30,800 mm (a **runoff ratio of 0.56**)
 became streamflow in this simple model; the rest evaporated or was stored. The runoff ratio is
 the number to watch: it rises sharply when the soil is already wet, which is why the *same* rain
-makes a far bigger flood on saturated ground — the role of antecedent wetness.
+makes a far bigger flood on saturated ground — the role of antecedent wetness. Month by month,
+rainfall (blue) stands against evaporative demand (red), with the resulting runoff as the line
+(Figure 6).
 
-![Figure 6. The monthly water balance: rainfall against evaporative demand and the resulting runoff.](figures/fig06_water_balance.png)
-
-*Figure 6. Rainfall (blue), evaporative demand PET (red) and runoff (line), by month.*
+![](figures/fig06_water_balance.png)
 
 > **An honest limit.** The built-in `"simple"` engine is a runoff generator, not a fully
 > mass-conserving water-balance model. It is perfect for seeing the *partition* of rainfall; for
@@ -497,11 +491,11 @@ The attenuation of 0.996 means the routed peak kept 99.6% of its height over thi
 **The five-method ladder.** `manning-normal` — steady flow, no wave movement (quick baseline).
 `kinematic` — the wave travels but barely flattens (steep channels). `diffusive` — the wave
 flattens realistically. `muskingum-cunge` — the practical default: accurate and cheap.
-`dynamic` — the most complete stable approximation in pure R.
+`dynamic` — the most complete stable approximation in pure R. Run the same flood through all five
+methods and the simpler ones keep more of the peak while the more physical ones attenuate it more
+(Figure 7).
 
-![Figure 7. The same flood through all five routing methods.](figures/fig07_routing_ladder.png)
-
-*Figure 7. Simpler methods keep more of the peak; adding physics attenuates it more.*
+![](figures/fig07_routing_ladder.png)
 
 > **The equation behind this: Muskingum-Cunge routing.**
 > $$ O_2 = C_0 I_2 + C_1 I_1 + C_2 O_1 $$
@@ -700,9 +694,10 @@ hand <- dem - global(dem, "min", na.rm = TRUE)[1,1]   # HAND proxy
 plot(dem, main = "Elevation (DEM)")
 ```
 
-![Figure 8. The digital elevation model. Warm = high ground, cool = valleys.](figures/fig_dem.png)
+Warm colours are high ground and cool colours the valley floors where flow concentrates
+(Figure 8).
 
-*Figure 8. The elevation model; flow runs from warm ridges to cool valley floors.*
+![](figures/fig_dem.png)
 
 ## 20. Roughness from NDVI (a Manning's *n* map)
 
@@ -719,11 +714,12 @@ manning <- roughness(ndvi, method = "ndvi")$n
 plot(manning, main = "Manning's n")
 ```
 
-![Figure 9. Left: the NDVI vegetation map. Right: the Manning's n roughness map derived from it.](figures/fig_ndvi.png)
+Greener ground (high NDVI) becomes rougher (higher *n*) and slows water more — the vegetation map
+and the Manning's *n* map derived from it (Figures 9 and 10).
 
-![Figure 10. Manning's n (roughness) derived from vegetation greenness.](figures/fig_manning.png)
+![](figures/fig_ndvi.png)
 
-*Figures 9–10. Greener ground (high NDVI) becomes rougher (higher n) and slows water more.*
+![](figures/fig_manning.png)
 
 ## 21. Calculating discharge two ways
 
@@ -769,9 +765,10 @@ flood_map(fp, layer = "depth")           # draws the inundation map
 plot(depth, main = "Inundation depth (m)")
 ```
 
-![Figure 11. Flood depth from Manning's equation per cell, and inundation extent from the HAND method.](figures/fig_depth.png)
+The HAND method keeps cells above the channel dry, leaving a clean inundation-depth map
+(Figure 11).
 
-*Figure 11. Inundation depth; the HAND method keeps cells above the flood dry.*
+![](figures/fig_depth.png)
 
 ## 23. The velocity map
 
@@ -786,15 +783,13 @@ velocity <- (1/manning) * depth_field^(2/3) * sqrt(slope_tan)
 plot(velocity, main = "Flow velocity (m/s)")
 ```
 
-![Figure 12. The velocity map (m/s). The fastest, most dangerous flow follows the steep flanks.](figures/fig_velocity.png)
+The fastest, most dangerous flow follows the steep flanks, not the flat valley floor (Figure 12).
 
-*Figure 12. Velocity — the fastest flow follows steep flanks, not the flat valley floor.*
+![](figures/fig_velocity.png)
 
-Discharge per cell then follows from continuity, `Q = velocity × width × depth`:
+Discharge per cell then follows from continuity, `Q = velocity × width × depth` (Figure 13).
 
-![Figure 13. Manning discharge per cell (m3/s).](figures/fig_discharge.png)
-
-*Figure 13. Per-cell discharge from velocity, width and depth.*
+![](figures/fig_discharge.png)
 
 ## 24. Time-bound maps
 
@@ -810,9 +805,10 @@ travel_min <- (distance(outlet_r) / velocity) / 60
 plot(travel_min, main = "Travel time to outlet (minutes)")
 ```
 
-![Figure 14. The travel-time map. Blue zones flood within minutes and must be warned first.](figures/fig_travel.png)
+Travel time to the outlet is the map that sets evacuation lead times — blue zones flood within
+minutes and must be warned first (Figure 14).
 
-*Figure 14. Travel time to the outlet — the map that sets evacuation lead times.*
+![](figures/fig_travel.png)
 
 ## 25. The complete spatial script
 
@@ -874,12 +870,10 @@ risk <- flood_vulnerability(depth/global(depth,"max",na.rm=TRUE)[1,1],  # MAP 6:
 
 To watch a flood move, loop over the daily routed series and draw one depth map per day, then
 let an animation package assemble them. The lumped depth-over-time curve for a single event
-looks like this:
+looks like a depth-over-time curve (red) over the rainfall that drove it (blue), with the depth
+lagging and outlasting the rain (Figure 15).
 
-![Figure 15. Lumped daily depth: the flood as a depth-over-time curve, over the rainfall that drove it.](figures/fig_daily_depth.png)
-
-*Figure 15. Daily flood depth through an event (red), over the rainfall that drove it (blue) —
-depth lags and outlasts the rain.*
+![](figures/fig_daily_depth.png)
 
 ## 27. Saving your maps, and troubleshooting
 
