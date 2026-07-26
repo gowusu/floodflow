@@ -11,8 +11,8 @@ navbar:
     right: [manual, search, github]
   components:
     manual:
-      text: Manual (PDF)
-      href: floodflow_manual.pdf
+      text: Manual
+      href: https://github.com/gowusu/floodflow/blob/master/manual/floodflow_manual.md
 
 reference:
 - title: Project and pipeline
