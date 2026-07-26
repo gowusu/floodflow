@@ -5,6 +5,15 @@ template:
   bslib:
     primary: "#1f6f8b"
 
+home:
+  title: floodflow — Climate-Informed Flood Modelling and Flood Hazard in R
+  description: >
+    Map-first, climate-informed flood hazard assessment for data-scarce basins in R.
+    Rainfall extreme-value analysis (GEV) with a stationary-versus-nonstationary trend
+    test, climate-adjusted design storms, rainfall-runoff, flow routing, water-depth and
+    inundation mapping, GLUE uncertainty and flood vulnerability. Includes a worked flood
+    assessment for the Odaw basin, Accra, on a real NASA POWER rainfall record.
+
 navbar:
   structure:
     left:  [intro, reference, articles]
