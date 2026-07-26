@@ -9,7 +9,7 @@ the stages.
 
 It is designed for teaching as much as for research: a companion
 [floodflow
-manual](https://gowusu.github.io/floodflow/manual/floodflow_manual.md)
+manual](https://gowusu.github.io/floodflow/articles/floodflow_manual.html)
 explains every concept, derives the equations, and includes worked
 exercises and projects, using the June 2026 Accra floods as a running
 case study.
@@ -73,17 +73,23 @@ fp$route$peak_depth_m        # ~2.07 m
 
 ## Documentation
 
-- [**Manual**](https://gowusu.github.io/floodflow/manual/floodflow_manual.md)
-  — the full teaching guide, renders on GitHub. Theory boxes, worked
-  equations, exercises and projects, and a spatial-mapping walkthrough.
-  Built on the real bundled `accra_rainfall` record;
-  `manual/reproduce_manual.R` regenerates every figure. A Word version
-  (`manual/floodflow_manual.docx`) is there for a printable copy.
+- [**Manual (read
+  online)**](https://gowusu.github.io/floodflow/articles/floodflow_manual.html)
+  — the full teaching guide as a web page: theory boxes, worked
+  equations, exercises and projects, and a spatial-mapping walkthrough,
+  built on the real bundled `accra_rainfall` record.
+- [Manual source on
+  GitHub](https://github.com/gowusu/floodflow/blob/master/manual/floodflow_manual.md)
+  (Markdown) and a [Word
+  version](https://github.com/gowusu/floodflow/blob/master/manual/floodflow_manual.docx)
+  for printing;
+  [`reproduce_manual.R`](https://github.com/gowusu/floodflow/blob/master/manual/reproduce_manual.R)
+  regenerates every figure.
 - [Documentation site](https://gowusu.github.io/floodflow/) — function
   reference and vignettes rendered as web pages.
 - [Getting-started
-  guide](https://gowusu.github.io/floodflow/GETTING-STARTED.md) — the
-  full scenario matrix.
+  guide](https://github.com/gowusu/floodflow/blob/master/GETTING-STARTED.md)
+  — the full scenario matrix.
 - Package help:
   [`?flood_route`](https://gowusu.github.io/floodflow/reference/flood_route.md),
   `example(flood_route)`, and `browseVignettes("floodflow")` after
